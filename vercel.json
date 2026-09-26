@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": "public",
+  "functions": {
+    "api/analyse.js": { "maxDuration": 120, "memory": 1024 },
+    "api/quiz.js": { "maxDuration": 120, "memory": 1024 },
+    "api/grade.js": { "maxDuration": 60, "memory": 1024 },
+    "api/health.js": { "maxDuration": 15 }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [{ "key": "cache-control", "value": "no-store" }]
+    },
+    {
+      "source": "/index.html",
+      "headers": [{ "key": "cache-control", "value": "public, max-age=0, must-revalidate" }]
+    }
+  ]
+}

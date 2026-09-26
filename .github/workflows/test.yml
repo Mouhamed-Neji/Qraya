@@ -1,0 +1,17 @@
+# Free CI: runs on every push, no secrets needed.
+# The AI tests point the backend at a fake provider, so no API key is required.
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save jsdom
+      - run: node test/api.test.mjs
+      - run: node test/offline.test.mjs
+      - run: node test/browser-ai.test.mjs
+      - run: node test/typing.test.mjs

@@ -1,0 +1,23 @@
+{
+  "name": "qraya",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Qraya \u2014 turn your course into a quiz. AI study platform for Tunisian Bac & Pr\u00e9pa students.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node dev-server.mjs",
+    "start": "node dev-server.mjs",
+    "test": "node test/api.test.mjs && node test/offline.test.mjs && node test/browser-ai.test.mjs && node test/typing.test.mjs",
+    "test:api": "node test/api.test.mjs",
+    "test:offline": "node test/offline.test.mjs",
+    "test:ai": "node test/browser-ai.test.mjs",
+    "test:typing": "node test/typing.test.mjs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jsdom": "^24.1.3"
+  }
+}
